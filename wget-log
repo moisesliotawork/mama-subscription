@@ -1,0 +1,12 @@
+--2024-12-20 09:52:40--  https://update.code.visualstudio.com/commit:fabdb6a30b49f79a7aba0f2ad9df9b399473380f/server-linux-x64/stable
+Resolving update.code.visualstudio.com (update.code.visualstudio.com)... 13.107.253.41, 2620:1ec:bdf::41
+Connecting to update.code.visualstudio.com (update.code.visualstudio.com)|13.107.253.41|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://vscode.download.prss.microsoft.com/dbazure/download/stable/fabdb6a30b49f79a7aba0f2ad9df9b399473380f/vscode-server-linux-x64.tar.gz [following]
+--2024-12-20 09:52:40--  https://vscode.download.prss.microsoft.com/dbazure/download/stable/fabdb6a30b49f79a7aba0f2ad9df9b399473380f/vscode-server-linux-x64.tar.gz
+Resolving vscode.download.prss.microsoft.com (vscode.download.prss.microsoft.com)... 199.232.210.172, 199.232.214.172, 2a04:4e42:4e::684, ...
+Connecting to vscode.download.prss.microsoft.com (vscode.download.prss.microsoft.com)|199.232.210.172|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 60538247 (58M) [application/octet-stream]
+Saving to: ‘/home/mojeda/.vscode-server/bin/fabdb6a30b49f79a7aba0f2ad9df9b399473380f-1734702628.tar.gz’
+

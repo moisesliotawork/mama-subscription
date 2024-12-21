@@ -11,12 +11,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Filament\Models\Contracts\FilamentUser;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use NorbyBaru\Passwordless\CanUsePasswordlessAuthenticatable;
 use NorbyBaru\Passwordless\Traits\PasswordlessAuthenticatable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable implements FilamentUser, MustVerifyEmail, HasTenants, CanUsePasswordlessAuthenticatable
 {
@@ -27,6 +27,13 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail, Has
      *
      * @var array<int, string>
      */
+
+    protected $primaryKey = 'id';
+
+    public $incrementing = false;
+
+    protected $keyType = 'string';
+
     protected $fillable = [
         'first_name',
         'last_name',
@@ -61,6 +68,17 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail, Has
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+            if (empty($user->{$user->getKeyName()})) {
+                $user->{$user->getKeyName()} = (string) Str::ulid();
+            }
+        });
     }
 
     public function name(): Attribute
